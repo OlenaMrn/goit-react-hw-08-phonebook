@@ -1,8 +1,7 @@
 import React from 'react';
+import css from './HomePage.module.css';
 
-import css from './Home.module.css';
-
-export const HomePage = () => {
+const HomePage = () => {
   return (
     <>
       <div className={css.background}></div>
@@ -14,4 +13,4 @@ export const HomePage = () => {
   );
 };
 
-
+export default HomePage;

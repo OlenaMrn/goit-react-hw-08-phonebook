@@ -1,62 +1,53 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { AppBar } from './AppBar/AppBar';
 import { Layout } from './Layout/Layout';
-import {HomePage} from '../pages/Home/HomePage';
-import {RegisterPage} from '../pages/Register/RegisterPage';
-import {LoginPage} from '../pages/Login/LoginPage';
-import {ContactsPage} from '../pages/Contacts/Contacts';
+
+// Lazy-loaded components
+const HomePage = lazy(() => import('../pages/Home/HomePage'));
+const RegisterPage = lazy(() => import('../pages/Register/RegisterPage'));
+const LoginPage = lazy(() => import('../pages/Login/LoginPage'));
+const ContactsPage = lazy(() => import('../pages/Contacts/Contacts'));
 
 export const App = () => {
   return (
     <>
-        <Routes>
+      <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/contacts" element={<ContactsPage />} />
+          <Route
+            index
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <HomePage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <RegisterPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <LoginPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <ContactsPage />
+              </Suspense>
+            }
+          />
         </Route>
       </Routes>
     </>
   );
 };
 
-// import { lazy } from 'react';
-// import { Route, Routes } from 'react-router-dom';
-// import { AppBar } from './AppBar/AppBar';
-// import { Layout } from './Layout/Layout';
-
-// const HomePage = lazy(() => import('../pages/Home/HomePage'));
-// const RegisterPage = lazy(() => import('../pages/Register/RegisterPage'));
-// const LoginPage = lazy(() => import('../pages/Login/LoginPage'));
-// const ContactsPage = lazy(() => import('../pages/Contacts/Contacts'));
-
-// export const App = () => {
-//   return (
-//     <>
-//       <AppBar />
-//       <Routes>
-//         <Route path="/" element={<Layout />}>
-//           <Route index element={<HomePage />} />
-//           <Route path="/register" element={<RegisterPage />} />
-//           <Route path="/login" element={<LoginPage />} />
-//           <Route path="/contacts" element={<ContactsPage />} />
-//         </Route>
-//       </Routes>
-//     </>
-//   );
-// };
-
-App.displayName = 'App';
-
-// export const App = () => {
-//   return (
-//     <>
-//       <AppBar />
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-//       </Routes>
-//     </>
-//   );
-// };

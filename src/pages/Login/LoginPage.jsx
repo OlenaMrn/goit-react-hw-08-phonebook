@@ -1,12 +1,14 @@
 import css from './LoginPage.module.css'
+import { LoginForm } from 'components/LoginForm/LoginForm';
 
-export const LoginPage = () => {
+const LoginPage = () => {
    
         return (
     <div className={css.wrapper}>
-                {/* <LoginForm /> */}
-                <p>Login form</p>
+                <LoginForm />
+               
     </div>
   );
 
 };
+export default LoginPage;

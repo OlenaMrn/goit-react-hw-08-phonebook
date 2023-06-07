@@ -1,11 +1,13 @@
 
 import css from './RegisterPage.module.css'
-
-export const RegisterPage = () => {
+import { RegisterForm } from 'components/RegistrationForm/RegistrationForm';
+const RegisterPage = () => {
   return (
     <div className={css.wrapper}>
-      {/* <RwgisterForm /> */}
-      <p>Register form</p>
-    </div>
+      <RegisterForm />
+         </div>
   );
 };
+
+
+export default RegisterPage;
