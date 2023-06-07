@@ -1,4 +1,7 @@
-export const Register = () => {
+
+import css from './RegisterPage.module.css'
+
+export const RegisterPage = () => {
   return (
     <div className={css.wrapper}>
       {/* <RwgisterForm /> */}

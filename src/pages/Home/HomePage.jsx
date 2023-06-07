@@ -2,7 +2,7 @@ import React from 'react';
 
 import css from './Home.module.css';
 
-export const Home = () => {
+export const HomePage = () => {
   return (
     <>
       <div className={css.background}></div>

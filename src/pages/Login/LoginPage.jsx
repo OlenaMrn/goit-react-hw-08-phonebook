@@ -1,6 +1,6 @@
+import css from './LoginPage.module.css'
 
-
-export const Login = () => {
+export const LoginPage = () => {
    
         return (
     <div className={css.wrapper}>
