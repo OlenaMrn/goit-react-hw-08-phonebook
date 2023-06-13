@@ -10,12 +10,12 @@
 //   selectIsLoading,
 // } from '../../redux/contacts/contactsSelectors';
 
-// export const ContactsList = () => {
-//   const dispatch = useDispatch();
+// export const ContactList = () => {
+//   // const dispatch = useDispatch();
 
-//   useEffect(() => {
-//     dispatch(fetchContacts()); 
-//   }, [dispatch]);
+//   // useEffect(() => {
+//   //   dispatch(fetchContacts()); 
+//   // }, [dispatch]);
 
 //   const contacts = useSelector(selectFilteredContacts);
 //   const isLoading = useSelector(selectIsLoading);
@@ -25,8 +25,9 @@
 //       {isLoading ? (
 //         <p>Loading...</p>
 //       ) : (
-//         <ul className={css.list}>
-//           {contacts.map(contact => (
+//           <ul className={css.list}>
+//             <li>1contact</li>
+//           {/* {contacts.map(contact => (
 //             <li className={css.item} key={contact.id}>
 //               <p className={css.contact_name}>{contact.name}</p>
 //               <p className={css.contact_number}>{contact.phone}</p>
@@ -38,7 +39,7 @@
 //                 X
 //               </button>
 //             </li>
-//           ))}
+//           ))} */}
 //         </ul>
 //       )}
 //     </div>

@@ -1,13 +1,14 @@
-
-import css from './RegisterPage.module.css'
+import React from 'react';
+import { Helmet } from 'react-helmet';
 import { RegisterForm } from 'components/RegistrationForm/RegistrationForm';
-const RegisterPage = () => {
+
+export default function RegisterPage() {
   return (
-    <div className={css.wrapper}>
+    <div>
+      <Helmet>
+        <title>Registration</title>
+      </Helmet>
       <RegisterForm />
-         </div>
+    </div>
   );
-};
-
-
-export default RegisterPage;
+}

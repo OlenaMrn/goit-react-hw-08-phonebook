@@ -1,14 +1,14 @@
-import css from './LoginPage.module.css'
+import React from 'react';
+import { Helmet } from 'react-helmet';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 
-const LoginPage = () => {
-   
-        return (
-    <div className={css.wrapper}>
-                <LoginForm />
-               
+export default function LoginPage() {
+  return (
+    <div>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
+      <LoginForm />
     </div>
   );
-
-};
-export default LoginPage;
+}
