@@ -7,11 +7,11 @@ import css from './AppBar.module.css';
 const AppBar = () => {
   const { isLoggedIn } = useAuth();
 
-  return (
-    <header className={css.header}>
+  return (<div className={css.container}><header className={css.header}>
       <Navigation />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
-    </header>
+    </header></div>
+    
   );
 };
 

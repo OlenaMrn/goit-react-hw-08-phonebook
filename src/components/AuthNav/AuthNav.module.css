@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  font-family: 'Arial', sans-serif;
+  
+ 
+}
+
+.link {
+margin-left: 20px;
+color: '#97bfd4';
+text-decoration: none;
+font-size: 16px;
+font-weight: 700;
+}
+
+.link:visited {
+  color: #97bfd4; 
+}
+
+.link:hover {
+  color: orange;
+  background-color: '#97bfd4';
+  
+}
+
