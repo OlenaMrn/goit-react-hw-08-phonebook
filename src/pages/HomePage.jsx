@@ -1,5 +1,6 @@
 import React from 'react';
 import phonebook_cover from '../img/phohebook_cover.jpg';
+import { orange } from '@mui/material/colors';
 
 const styles = {
   container: {
@@ -24,8 +25,9 @@ const styles = {
     margin:'0',
   },
   description: {
-    fontSize: '26px',
+    fontSize: '20px',
     marginTop: '10px',
+    color:'orange',
   },
 };
 

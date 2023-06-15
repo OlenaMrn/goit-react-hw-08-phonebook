@@ -1,0 +1,30 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+ 
+}
+
+.username {
+    font-family: 'Arial', sans-serif;
+  color: orange;
+  font-weight: 600;
+}
+
+.logout {
+    padding: 5px 15px;
+  background-color: #97bfd4;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 15px;
+  
+  align-self: flex-end;
+}
+
+.logout:hover {
+    background-color: orange;
+}

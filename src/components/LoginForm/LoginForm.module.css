@@ -1,9 +1,75 @@
-.form {
-  width: 320px;
+.wrapper {
+  width: 840px;
+  height: 100vh;
+  margin: 0 auto;
+  background-image: url('../../img/phohebook_cover.jpg');
+  background-size: center;
+  background-position: top;
+  background-repeat: no-repeat;
+  padding: 60px;
 }
 
-.label {
-  display: flex;
+.loginForm {
+   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
+  align-items: center;
+
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 4px;
+  font-family: 'Arial', sans-serif;
+  color: orange;
+  /* background-color: white; */
+  box-shadow: 0 12px 14px rgba(90, 147, 155, 0.1);
+
+}
+
+.formTitle {
+  margin-top: 0;
+  font-size: 24px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.formField {
+  display: flex;
+  /* flex-direction: column; */
+  margin-top: 20px;
+ 
+}
+
+.input {
+  padding: 10px;
+  /* margin-bottom: 10px; */
+
+ margin-right: 10px;
+  border: 1px solid #97bfd4;
+  border-radius: 4px;
+  font-family: 'Arial', sans-serif;
+ 
+  align-items: center;
+}
+
+.formSubmit {
+  padding: 10px 20px;
+  background-color: #97bfd4;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 37px;
+  align-self: flex-end;
+}
+
+.formSubmit:hover {
+  background-color: orange;
+}
+
+
+.labelText {
+  margin: 0;
 }

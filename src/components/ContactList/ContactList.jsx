@@ -6,6 +6,7 @@ import {
 } from '../../redux/contacts/selectors';
 import { deleteContact } from '../../redux/contacts/operations';
 import React from 'react';
+import { MdPhone } from 'react-icons/md';
 
 import css from './ContactList.module.css';
 
@@ -27,15 +28,18 @@ export const ContactList = () => {
     <ul className={css.list}>
       {filtersContacts.map(({ id, name, number }) => (
         <li key={id}>
-          <div>
-            <img
-              alt={`Avatar n°${name}`}
-              src={`/static/images/avatar/${name}.jpg`}
-            />
-          </div>
-          <div>{`${name}: ${number}`}</div>
-          <div>
-            <button onClick={() => dispatch(deleteContact(id))}>Delete</button>
+          <div className={css.wrapper}>
+            <div>
+              {`${name}:`} {''} {`${number}`}
+            </div>
+            <div>
+              <button
+                className={css.button}
+                onClick={() => dispatch(deleteContact(id))}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         </li>
       ))}

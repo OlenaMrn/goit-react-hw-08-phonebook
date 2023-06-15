@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { setStatusFilter } from '../../redux/filter/filterSlice';
+import css from './StatusFilter.module.css'
 
 const StatusFilter = () => {
   const dispatch = useDispatch();
@@ -11,17 +12,17 @@ const StatusFilter = () => {
   };
 
   return (
-    <form>
+    <form className={css.filter}>
+      <label className={css.label}>Find contacts by name</label>
       <input
-        placeholder="Find contacts by name"
+        placeholder="Start typing..."
         type="text"
         name="name"
+        className={css.input}
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Enter name"
         onChange={handleFilterChange}
       />
-      <button type="button">Search</button>
-      <button type="button">Directions</button>
     </form>
   );
 };
