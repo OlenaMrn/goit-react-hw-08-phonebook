@@ -30,7 +30,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div>
+    <div className={css.wrap}>
       <form className={css.submit} onSubmit={handleSubmit}>
         <label className={css.label}>
           Name

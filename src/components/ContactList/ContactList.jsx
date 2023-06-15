@@ -45,7 +45,7 @@ export const ContactList = () => {
       ))}
     </ul>
   ) : (
-    (error && <p>Error: {error}</p>) || <p>No contacts</p>
+    (error && <p>Error: {error}</p>) || <p className={css.noResult}>No contacts</p>
   );
 };
 

@@ -51,3 +51,9 @@
 .icon svg {
   margin-right: 3px;
 }
+
+.noResult {
+  text-align: center;
+   font-family: 'Arial', sans-serif;
+   color: #97bfd4;
+}

@@ -7,7 +7,7 @@
 .username {
     font-family: 'Arial', sans-serif;
   color: orange;
-  font-weight: 600;
+  
 }
 
 .logout {
@@ -22,7 +22,7 @@
   font-weight: 600;
   margin-left: 15px;
   
-  align-self: flex-end;
+ 
 }
 
 .logout:hover {

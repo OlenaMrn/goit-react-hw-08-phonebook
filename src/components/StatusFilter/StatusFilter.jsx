@@ -13,7 +13,7 @@ const StatusFilter = () => {
 
   return (
     <form className={css.filter}>
-      <label className={css.label}>Find contacts by name</label>
+      <label className={css.label}>Find contact by name</label>
       <input
         placeholder="Start typing..."
         type="text"

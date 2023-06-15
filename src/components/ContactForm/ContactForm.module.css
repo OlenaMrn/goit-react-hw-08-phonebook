@@ -1,13 +1,38 @@
+.wrap {
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Add this line to horizontally center the button */
+  margin-bottom: 40px;
+}
+
 .button {
-  padding: 10px 20px;
+  padding: 5px 15px;
   background-color: #97bfd4;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-family: 'Arial', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  height: 37px;
-  align-self: center;
+  margin: 0 auto;
+  display: block;
+}
+
+.input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #97bfd4;
+  border-radius: 4px;
+  font-family: 'Arial', sans-serif;
+  min-width: 100%;
+  align-items: center;
+  box-shadow: 0 12px 14px rgba(90, 147, 155, 0.1);
+}
+
+.submit {
+  font-family: 'Arial', sans-serif;
+  color: orange;
 }
