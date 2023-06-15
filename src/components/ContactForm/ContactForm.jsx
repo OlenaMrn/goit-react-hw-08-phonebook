@@ -1,68 +1,65 @@
-import React, { useState } from 'react';
-import css from './ContactForm.module.css';
-
 import { useDispatch, useSelector } from 'react-redux';
+import { getContacts } from '../../redux/contacts/selectors';
 
-import { addContact } from '../../redux/contacts/contactsOperations';
-import { selectContacts } from '../../redux/contacts/contactsSelectors';
+import css from './ContactForm.module.css';
+import { addContact } from 'redux/contacts/operations';
 
-export const ContactForm = () => {
+const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
+  const contacts = useSelector(getContacts);
 
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const handleSubmit = event => {
+    event.preventDefault();
+    const name = event.target.elements.name.value;
+    const number = event.target.elements.number.value;
+    const normalizedCase = name.toLowerCase();
+    let isAdded = false;
 
-  const handleSubmit = e => {
-    e.preventDefault();
+    contacts.forEach(el => {
+      if (el.name.toLowerCase() === normalizedCase) {
+        alert(`${name} is already in contacts`);
+        isAdded = true;
+      }
+    });
 
-    const existingContact = contacts.find(
-      contact => contact.name.toLowerCase() === name.toLowerCase()
-    );
-    if (existingContact) {
-      alert(`${existingContact.name} is already in contacts`);
+    if (isAdded) {
       return;
     }
-
-    dispatch(addContact({ name, phone }));
-    setName('');
-    setPhone('');
+    dispatch(addContact({ name, number }));
+    event.target.reset();
   };
 
   return (
-    <div className={css.wrap}>
-      {/* <p>here will be form</p> */}
-      <form className={css.form} onSubmit={handleSubmit}>
-        <label className={css.label} htmlFor="name">
+    <div>
+      <form className={css.submit} onSubmit={handleSubmit}>
+        <label className={css.label}>
           Name
+          <input
+            className={css.input}
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
         </label>
-        <input
-          className={css.input}
-          type="text"
-          name="name"
-          value={name}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          onChange={e => setName(e.target.value)}
-        />
-        <label className={css.label} htmlFor="number">
+        <label className={css.label}>
           Number
+          <input
+            className={css.input}
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
         </label>
-        <input
-          className={css.input}a
-          type="tel"
-          value={phone}
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          onChange={e => setPhone(e.target.value)}
-        />
-        <button className={css.button} type="submit">
-          Add contact
+        <button className={css.btn} type="submit">
+          <span>Add contact</span>
         </button>
       </form>
     </div>
   );
 };
+
+export default ContactForm;

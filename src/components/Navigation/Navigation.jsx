@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks';
-
-import css from '../Navigation/Navigation.module.css';
+import css from './Navigation.module.css';
+// import logo from '../../images/phonebook-icone.png';
 
 export const Navigation = () => {
-  const { isLoggedIn } = useAuth();
+  const isLoggedIn = useAuth();
 
   return (
     <nav>
@@ -13,10 +13,9 @@ export const Navigation = () => {
       </NavLink>
       {isLoggedIn && (
         <NavLink className={css.link} to="/contacts">
-          Contacts
+         Contacts
         </NavLink>
       )}
     </nav>
   );
 };
-

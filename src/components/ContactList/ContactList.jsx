@@ -1,47 +1,48 @@
-// import React, { useEffect } from 'react';
-// import css from './ContactList.module.css';
-// import { useDispatch, useSelector } from 'react-redux';
-// import {
-//   fetchContacts,
-//   deleteContact,
-// } from '../../redux/contacts/contactsOperations';
-// import {
-//   selectFilteredContacts,
-//   selectIsLoading,
-// } from '../../redux/contacts/contactsSelectors';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getContacts,
+  getFilterValue,
+  getErrorStatus,
+} from '../../redux/contacts/selectors';
+import { deleteContact } from '../../redux/contacts/operations';
+import React from 'react';
 
-// export const ContactList = () => {
-//   // const dispatch = useDispatch();
+import css from './ContactList.module.css';
 
-//   // useEffect(() => {
-//   //   dispatch(fetchContacts()); 
-//   // }, [dispatch]);
+export const ContactList = () => {
+  const contacts = useSelector(getContacts);
+  const statusFilter = useSelector(getFilterValue);
+  const dispatch = useDispatch();
+  const error = useSelector(getErrorStatus);
 
-//   const contacts = useSelector(selectFilteredContacts);
-//   const isLoading = useSelector(selectIsLoading);
+  const filtersContacts = contacts.filter(
+    contact =>
+      contact.name.toLowerCase().includes(statusFilter.toLowerCase()) ||
+      contact.number
+        .replace(/-|\s/g, '')
+        .includes(statusFilter.replace(/-|\s/g, ''))
+  );
 
-//   return (
-//     <div>
-//       {isLoading ? (
-//         <p>Loading...</p>
-//       ) : (
-//           <ul className={css.list}>
-//             <li>1contact</li>
-//           {/* {contacts.map(contact => (
-//             <li className={css.item} key={contact.id}>
-//               <p className={css.contact_name}>{contact.name}</p>
-//               <p className={css.contact_number}>{contact.phone}</p>
-//               <button
-//                 onClick={() => dispatch(deleteContact(contact.id))}
-//                 className={css.button}
-//                 type="button"
-//               >
-//                 X
-//               </button>
-//             </li>
-//           ))} */}
-//         </ul>
-//       )}
-//     </div>
-//   );
-// };
+  return filtersContacts.length > 0 ? (
+    <ul className={css.list}>
+      {filtersContacts.map(({ id, name, number }) => (
+        <li key={id}>
+          <div>
+            <img
+              alt={`Avatar n°${name}`}
+              src={`/static/images/avatar/${name}.jpg`}
+            />
+          </div>
+          <div>{`${name}: ${number}`}</div>
+          <div>
+            <button onClick={() => dispatch(deleteContact(id))}>Delete</button>
+          </div>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    (error && <p>Error: {error}</p>) || <p>No contacts</p>
+  );
+};
+
+export default ContactList;
