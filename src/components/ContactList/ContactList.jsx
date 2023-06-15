@@ -6,7 +6,7 @@ import {
 } from '../../redux/contacts/selectors';
 import { deleteContact } from '../../redux/contacts/operations';
 import React from 'react';
-import { MdPhone } from 'react-icons/md';
+
 
 import css from './ContactList.module.css';
 
